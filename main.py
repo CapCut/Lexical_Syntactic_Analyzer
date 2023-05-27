@@ -112,23 +112,23 @@ def analisis():
     global scroll
     global scannergg
 
-    #conten = scroll.get(1.0, tkinter.END)
+    conten = scroll.get(1.0, tkinter.END)
     
-    #if conten != "":
-    #    scannergg.Analizador(conten)
-    #    scannergg.imprimir_analizador()
-    #    scannergg.sintactico()
-    #    scannergg.imprimir_parser()
-    #
-    #    aux_lex = scannergg.listaErroes
-    #    aux_sin = scannergg.error_sin
-#
-    #    if (aux_sin and aux_lex) != None:
-    #        scannergg.escribir_sentencias(ruta)
-    #    else:
-    #        pass
-    #else:
-    #    messagebox.showerror('Error', 'No se pudo analizar el archivo')
+    if conten != "":
+        scannergg.Analizador(conten)
+        scannergg.imprimir_analizador()
+        #scannergg.sintactico()
+        #scannergg.imprimir_parser()
+    
+        #aux_lex = scannergg.listaErroes
+        #aux_sin = scannergg.error_sin
+
+        #if (aux_sin and aux_lex) != None:
+            #scannergg.escribir_sentencias(ruta)
+        #else:
+            #pass
+    else:
+        messagebox.showerror('Error', 'No se pudo analizar el archivo')
         
 #Ver Tokens
 def ventana_mostrar_token():
@@ -158,22 +158,21 @@ def ventana_mostrar_token():
     tabla.heading("Elemento2", text='Token', anchor=CENTER)
 
     #Función Lógica
-    #aux_tabla = scannergg.obtener_lista_tokens()
-    #nuevos = []
-#
-    #for j in aux_tabla:
-    #    nuevos.append((j.lexema, j.tipo))
-#
-    #iterador = 1
-    #for i in nuevos:
-    #    tabla.insert("", tk.END, text=str(iterador), values=i)
-    #    iterador += 1
+    aux_tabla = scannergg.obtener_lista_tokens()
+    nuevos = []
+
+    for j in aux_tabla:
+        nuevos.append((j.lexema, j.tipo))
+
+    iterador = 1
+    for i in nuevos:
+        tabla.insert("", tk.END, text=str(iterador), values=i)
+        iterador += 1
 
     tabla.pack()
     tabla.place(x=30, y=30)
 
     ventana_token.mainloop()
-
 
 #Errores
 def ventana_mostrar_error():
@@ -208,17 +207,17 @@ def ventana_mostrar_error():
     tabla_err.heading("Elemento5", text='Columna', anchor=CENTER)
 
     #Función Lógica
-    #aux_error = scannergg.obtener_lista_error()
-    #nuevo = []
+    aux_error = scannergg.obtener_lista_error()
+    nuevo = []
     #aux_tac = scannergg.obtener_lista_err_sintactico()
     #sintactico = []
-#
-    #for i in aux_error:
-    #    nuevo.append((i.caracter, i.descripcion, i.tipo, i.line, i.colum))
-#
-    #for j in nuevo:
-    #    tabla_err.insert("", tk.END, values=j)
-    #    
+
+    for i in aux_error:
+        nuevo.append((i.caracter, i.descripcion, i.tipo, i.line, i.colum))
+
+    for j in nuevo:
+        tabla_err.insert("", tk.END, values=j)
+       
     ##Errores Sintácticos
     #for sintac in aux_tac:
     #    sintactico.append((sintac.caracter, sintac.descripcion, sintac.tipo, sintac.line, sintac.colum))
@@ -230,7 +229,6 @@ def ventana_mostrar_error():
     tabla_err.place(x=40, y=30)
 
     ventana_error.mainloop()
-
 
 #============================== Menú Principal ==============================
 ventana = tkinter.Tk()
