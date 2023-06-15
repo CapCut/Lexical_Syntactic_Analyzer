@@ -145,7 +145,7 @@ def ventana_mostrar_token():
     # Establecer un tema
     estilo.set_theme("clam")
     # Configurar el estilo del Treeview utilizando CSS
-    estilo.configure("Custom.Treeview", background="red", foreground="black", font=('Arial', 12))
+    estilo.configure("Custom.Treeview", background="#008F68", foreground="black", font=('Arial', 12, 'bold'))
 
     #Tabla de datos
     tabla = ttk.Treeview(ventana_token, columns=("Elemento1", "Elemento2"), style="Custom.Treeview")
@@ -189,7 +189,7 @@ def ventana_mostrar_error():
     # Establecer un tema
     estilo.set_theme("clam")
     # Configurar el estilo del Treeview utilizando CSS
-    estilo.configure("Custom.Treeview", background="red", foreground="black", font=('Arial', 12))
+    estilo.configure("Custom.Treeview", background="#8F0000", foreground="white", font=('Arial', 12, 'bold'))
 
     #Tabla de datos
     tabla_err = ttk.Treeview(ventana_error, columns=("Elemento1", "Elemento2", "Elemento3", "Elemento4", "Elemento5"), style="Custom.Treeview")
