@@ -132,10 +132,10 @@ class Scanner:
                         else:
                             self.listaErroes.append(Error(caracter, 'ERROR', 'Léxico', linea, columna))
                             mufa = ''
-                            columna = 0
+                            columna += 1
 
                     elif estado == 'S1':#En este estado verificaremos si el caracter es letra o numero, cualquiera de los casos se lamacenaran en la variable "mufa"
-                        if caracter.isalpha() or (caracter.isdigit()):
+                        if caracter.isalpha() and (not caracter.isdigit()):
                             mufa += caracter
                             columna += 1
                             estado = 'S1'
